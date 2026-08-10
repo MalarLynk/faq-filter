@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lynk & Co Technical FAQ</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="carCompare">
+
+        <div class="logo-container">
+            <img class="logo" src="logo.png" alt="Lynk & Co">
+        </div>
+
+
+        <h1 class="title">
+            Lynk & Co Technical FAQ
+        </h1>
+
+        <p class="subtitle">
+            Codiac | PDS | Work Order App | Warranty | DTC | High Voltage
+        </p>
+
+
+        <!-- FILTERS -->
+        <div class="filters">
+
+            <select id="categoryFilter">
+
+                <option value="">
+                    All Categories
+                </option>
+
+                <option value="Codiac">
+                    Codiac
+                </option>
+
+                <option value="PDS">
+                    PDS
+                </option>
+
+                <option value="Work Order App">
+                    Work Order App
+                </option>
+
+                <option value="Warranty">
+                    Warranty
+                </option>
+
+                <option value="DTC">
+                    DTC
+                </option>
+
+                <option value="High Voltage">
+                    High Voltage
+                </option>
+
+            </select>
+
+
+            <input id="searchBox"
+                   type="text"
+                   placeholder="Search FAQ...">
+
+        </div>
+
+
+
+        <div class="table-wrapper">
+
+            <div class="table-scroll">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th class="sticky-col">
+                                Category
+                            </th>
+
+                            <th>
+                                Question
+                            </th>
+
+                            <th>
+                                Answer
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+
+                        <!-- ================= CODIAC ================= -->
+
+                        <tr class="section-header" data-section="codiac">
+
+                            <th colspan="3">
+
+                                <div class="section-title">
+
+                                    Codiac
+
+                                    <button class="toggle-section">
+                                        -
+                                    </button>
+
+                                </div>
+
+                            </th>
+
+                        </tr>
+
+
+                        <tr class="section-row codiac">
+
+                            <th class="sticky-col">
+                                Codiac
+                            </th>
+
+                            <td>
+                                When will these schemes finally be integrated into Codiac? This way of scheduling is outdated and does not work pleasantly.
+                            </td>
+
+                            <td>
+                                They won't be more integrated. The wiring diagram is what we are using, and we will not build it like VIDA. The system does not work that way. We will never have guided diagnostics.
+                                Start by checking TJ under Operation in Codiac and CSC in Work Order App.
+                            </td>
+
+                        </tr>
+
+
+                        <tr class="section-row codiac">
+
+                            <th class="sticky-col">
+                                Codiac
+                            </th>
+
+                            <td>
+                                So then no plug may be replaced? Does the entire wiring harness have to be replaced?
+                            </td>
+
+                            <td>
+                                No plug can be replaced unless there is a specific operation for it. Example: pressure sensor particle filter connector. This is only for that specific use case.
+                            </td>
+
+                        </tr>
+
+
+
+                        <tr class="section-row codiac">
+
+                            <th class="sticky-col">
+                                Codiac
+                            </th>
+
+                            <td>
+                                Air Conditioning Service - Will workshops be able to order Washers or PAG Oil?
+                            </td>
+
+                            <td>
+                                No chemical supplies are provided. We provide specifications. Exception: transmission oil for 01MY25 and 08.
+                            </td>
+
+                        </tr>
+
+
+
+                        <tr class="section-row codiac">
+
+                            <th class="sticky-col">
+                                Codiac
+                            </th>
+
+                            <td>
+                                Will we be able to order spare parts without entering VIN?
+                            </td>
+
+                            <td>
+                                No.
+                            </td>
+
+                        </tr>
+
+
+
+
+                        <!-- ================= PDS ================= -->
+
+                        <tr class="section-header" data-section="pds">
+
+                            <th colspan="3">
+
+                                <div class="section-title">
+
+                                    PDS
+
+                                    <button class="toggle-section">
+                                        -
+                                    </button>
+
+                                </div>
+
+                            </th>
+
+                        </tr>
+
+
+                        <tr class="section-row pds">
+
+                            <th class="sticky-col">
+                                PDS
+                            </th>
+
+                            <td>
+                                When will we see order history on downloaded software?
+                            </td>
+
+                            <td>
+                                No, this will not be available.
+                            </td>
+
+                        </tr>
+
+
+
+                        <tr class="section-row pds">
+
+                            <th class="sticky-col">
+                                PDS
+                            </th>
+
+                            <td>
+                                Is it possible to lock the car in transport mode and unlock without PDS?
+                            </td>
+
+                            <td>
+                                No, you may not lock.
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- ================= DTC ================= -->
+
+                        <tr class="section-header" data-section="dtc">
+
+                            <th colspan="3">
+
+                                <div class="section-title">
+
+                                    DTC
+
+                                    <button class="toggle-section">
+                                        -
+                                    </button>
+
+                                </div>
+
+                            </th>
+
+                        </tr>
+
+
+                        <tr class="section-row dtc">
+
+                            <th class="sticky-col">
+                                DTC
+                            </th>
+
+                            <td>
+                                Will we be able to see old readouts of error codes after deletion?
+                            </td>
+
+                            <td>
+                                Yes, this will be launched.
+                            </td>
+
+                        </tr>
+
+
+
+                        <tr class="section-row dtc">
+
+                            <th class="sticky-col">
+                                DTC
+                            </th>
+
+                            <td>
+                                When will we see older DTCs if the car was recently read out?
+                            </td>
+
+                            <td>
+                                It is under development. The first draft looks promising and is expected in the future.
+                            </td>
+
+                        </tr>
+
+
+
+
+                        <!-- ================= WORK ORDER APP ================= -->
+
+                        <tr class="section-header" data-section="workorder">
+
+                            <th colspan="3">
+
+                                <div class="section-title">
+
+                                    Work Order App
+
+                                    <button class="toggle-section">
+                                        -
+                                    </button>
+
+                                </div>
+
+                            </th>
+
+                        </tr>
+
+
+
+                        <tr class="section-row workorder">
+
+                            <th class="sticky-col">
+                                Work Order App
+                            </th>
+
+                            <td>
+                                When operations and parts are added, approval causes repair delays and duplicate orders.
+                            </td>
+
+                            <td>
+                                In Work Order App in Codiac, when adding an operation you can select and remove unnecessary parts before ordering.
+                            </td>
+
+                        </tr>
+
+
+
+
+                        <!-- ================= WARRANTY ================= -->
+
+
+                        <tr class="section-header" data-section="warranty">
+
+                            <th colspan="3">
+
+                                <div class="section-title">
+
+                                    Warranty
+
+                                    <button class="toggle-section">
+                                        -
+                                    </button>
+
+                                </div>
+
+                            </th>
+
+                        </tr>
+
+
+
+                        <tr class="section-row warranty">
+
+                            <th class="sticky-col">
+                                Warranty
+                            </th>
+
+                            <td>
+                                Why is there no longer standard troubleshooting linked to warranty application based on CSC?
+                            </td>
+
+                            <td>
+                                Troubleshooting must now be booked manually.
+                            </td>
+
+                        </tr>
+
+
+
+                        <tr class="section-row warranty">
+
+                            <th class="sticky-col">
+                                Warranty
+                            </th>
+
+                            <td>
+                                How long does warranty pre-approval take?
+                            </td>
+
+                            <td>
+                                Within one working day (Monday-Friday). Pre-approval requests are recommended.
+                            </td>
+
+                        </tr>
+
+
+
+
+                        <!-- ================= HIGH VOLTAGE ================= -->
+
+                        <tr class="section-header" data-section="highvoltage">
+
+                            <th colspan="3">
+
+                                <div class="section-title">
+
+                                    High Voltage
+
+                                    <button class="toggle-section">
+                                        -
+                                    </button>
+
+                                </div>
+
+                            </th>
+
+                        </tr>
+
+
+                        <tr class="section-row highvoltage">
+
+                            <th class="sticky-col">
+                                High Voltage
+                            </th>
+
+                            <td>
+                                Can we charge HV battery without using Codiac?
+                            </td>
+
+                            <td>
+                                No. The function is disabled for safety reasons.
+                            </td>
+
+                        </tr>
+
+
+                        <tr class="section-row highvoltage">
+
+                            <th class="sticky-col">
+                                High Voltage
+                            </th>
+
+                            <td>
+                                Will it be possible to print the high-voltage battery health test?
+                            </td>
+
+                            <td>
+                                No, this is currently unavailable. Sellers should submit a feature request to Lynk & Co Retail Support.
+                            </td>
+
+                        </tr>
+
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
