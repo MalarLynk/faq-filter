@@ -1,46 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const categoryFilter =
-        document.getElementById("categoryFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const searchBox = document.getElementById("searchBox");
 
-    const searchBox =
-        document.getElementById("searchBox");
+
+    // Store the collapse state of each section
+    const collapsedSections = {};
+
+
+    // ==============================
+    // APPLY FILTERS
+    // ==============================
 
     function applyFilters() {
 
-        const category =
-            categoryFilter.value.toLowerCase();
+        const category = categoryFilter.value.toLowerCase().trim();
+        const search = searchBox.value.toLowerCase().trim();
 
-        const search =
-            searchBox.value.toLowerCase();
 
-        document.querySelectorAll(".section-row")
-            .forEach(row => {
+        document.querySelectorAll(".section-header").forEach(header => {
+
+            const section = header.dataset.section;
+
+            const rows = document.querySelectorAll(
+                ".section-row." + section
+            );
+
+
+            let visibleRows = 0;
+
+
+            rows.forEach(row => {
 
                 const rowCategory =
                     row.querySelector("th")
                         .innerText
-                        .toLowerCase();
+                        .toLowerCase()
+                        .trim();
 
                 const text =
                     row.innerText.toLowerCase();
 
+
                 const categoryMatch =
                     !category ||
                     rowCategory === category;
+
 
                 const searchMatch =
                     !search ||
                     text.includes(search);
 
 
-                if (categoryMatch && searchMatch) {
-                    row.style.display = "table-row";
+                const matches =
+                    categoryMatch &&
+                    searchMatch;
+
+
+                /*
+                 * IMPORTANT:
+                 * Filtering controls display.
+                 * Collapsing controls the hidden class.
+                 */
+                if (matches) {
+
+                    row.classList.remove("filtered-out");
+                    visibleRows++;
+
+                } else {
+
+                    row.classList.add("filtered-out");
+
                 }
-                else {
-                    row.style.display = "none";
-                }
+
             });
+
+
+            // Hide section header if no rows match
+            if (visibleRows === 0) {
+
+                header.classList.add("filtered-out");
+
+            } else {
+
+                header.classList.remove("filtered-out");
+
+            }
+
+        });
+
+
+        updateCollapsedSections();
+
+    }
+
+
+    // ==============================
+    // UPDATE COLLAPSED SECTIONS
+    // ==============================
+
+    function updateCollapsedSections() {
 
         document.querySelectorAll(".section-header")
             .forEach(header => {
@@ -48,29 +107,56 @@ document.addEventListener("DOMContentLoaded", () => {
                 const section =
                     header.dataset.section;
 
-                const visible =
+                const rows =
                     document.querySelectorAll(
-                        ".section-row." + section +
-                        ":not([style*='display: none'])"
-                    ).length;
+                        ".section-row." + section
+                    );
 
-                header.style.display =
-                    visible ? "table-row" : "none";
+
+                const isCollapsed =
+                    collapsedSections[section] === true;
+
+
+                rows.forEach(row => {
+
+                    /*
+                     * Do not remove filtered-out here.
+                     * Filtering and collapsing are separate.
+                     */
+
+                    if (isCollapsed) {
+
+                        row.classList.add("collapsed");
+
+                    } else {
+
+                        row.classList.remove("collapsed");
+
+                    }
+
+                });
+
+
+                // Update button
+                const button =
+                    header.querySelector(".toggle-section");
+
+
+                if (button) {
+
+                    button.textContent =
+                        isCollapsed ? "+" : "-";
+
+                }
+
             });
+
     }
 
-    categoryFilter.addEventListener(
-        "change",
-        applyFilters
-    );
 
-    searchBox.addEventListener(
-        "keyup",
-        applyFilters
-    );
-
-
+    // ==============================
     // COLLAPSIBLE SECTIONS
+    // ==============================
 
     document.querySelectorAll(".section-header")
         .forEach(header => {
@@ -81,28 +167,44 @@ document.addEventListener("DOMContentLoaded", () => {
             const section =
                 header.dataset.section;
 
-            const rows =
-                document.querySelectorAll(
-                    ".section-row." + section
-                );
 
-            button.addEventListener(
-                "click",
-                () => {
+            // Default state = expanded
+            collapsedSections[section] = false;
 
-                    const collapsed =
-                        rows[0]
-                            .classList
-                            .contains("hidden");
 
-                    rows.forEach(row => {
-                        row.classList.toggle(
-                            "hidden"
-                        );
-                    });
+            button.addEventListener("click", () => {
 
-                    button.textContent =
-                        collapsed ? "-" : "+";
-                });
+                collapsedSections[section] =
+                    !collapsedSections[section];
+
+
+                updateCollapsedSections();
+
+            });
+
         });
+
+
+    // ==============================
+    // FILTER EVENTS
+    // ==============================
+
+    categoryFilter.addEventListener(
+        "change",
+        applyFilters
+    );
+
+
+    searchBox.addEventListener(
+        "input",
+        applyFilters
+    );
+
+
+    // ==============================
+    // INITIALIZE
+    // ==============================
+
+    applyFilters();
+
 });

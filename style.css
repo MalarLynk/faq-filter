@@ -295,23 +295,26 @@ tbody tr:nth-child(even) td {
     }
 
 
-
-
 /* ================= Collapse ================= */
-
 
 .section-row {
     transition: .35s ease;
 }
 
-
-
-    .section-row.hidden {
+    /* Hidden because of filtering */
+    .section-row.filtered-out {
         display: none;
     }
 
+    /* Hidden because section is collapsed */
+    .section-row.collapsed {
+        display: none;
+    }
 
-
+/* Hide section header when no filtered results exist */
+.section-header.filtered-out {
+    display: none;
+}
 
 
 /* ================= Scrollbar ================= */
